@@ -32,24 +32,24 @@ Existing docker image used for NFS Server: https://hub.docker.com/r/itsthenetwor
 
 I have prepared few shell scripts in this repository as POC:
 
-* <b>server</b>/initNfsServer.sh
+* <b>initNfsServer.sh</b>
     * This script will start NFS Server (v4) in docker container.
       Just run it once and NFS server will always run after Docker startup.
     * Custom NFS port is used to avoid any possible conflicts with your host system
     * Tested on MacOS 10.15.7 + Docker Desktop 2.4.0
     * Could be used with Minikube as well. (Tested with VirtualBox driver). In such case host ip = "minikube ip"
 
-*  <b>server</b>/stopNfsServer.sh
+*  <b>stopNfsServer.sh</b>
     * Kill & remove nfs container
     * Because of "restart:always" in init script, it is not required to stop/start server manually.
       Just init once.
 
-*  <b>client</b>/startShare.sh
+*  <b>startShare.sh</b>
     * Dedicated to be run on your host.
     * Script will mount container NFS share to local folder <b>~/docker-volumes</b>
     * All Docker volumes will be accessible with original permissions - you can use chown/chmod, e.t.c. directly
 
-*  <b>client</b>/stopShare.sh
+*  <b>stopShare.sh</b>
     * Unmount active NFS session by path (<b>~/docker-volumes</b>)
     
 #### Usage

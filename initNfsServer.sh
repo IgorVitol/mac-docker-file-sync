@@ -1,4 +1,6 @@
 #!/bin/sh
+# Maintained by Igor Vitol: https://www.linkedin.com/in/igor-vitol-87572a95/
+#
 # This script will start NFS Server (v4) in docker container.
 # You will be able to mount NFS share with all docker volumes on your MacOS and work with files directly
 # With this you can avoid using Docker-Sync/Mutagen, e.t.c. for files sync and keep great Docker performance on Mac

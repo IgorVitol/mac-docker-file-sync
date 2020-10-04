@@ -1,4 +1,6 @@
 #!/bin/sh
+# Maintained by Igor Vitol: https://www.linkedin.com/in/igor-vitol-87572a95/
+#
 # NFS Server should be initialized first
 # Script will mount container NFS share to local folder ~/docker-volumes
 # All Docker volumes will be accessible with original permissions - you can use chown/chmod, e.t.c. directly
