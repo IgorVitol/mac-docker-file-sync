@@ -2,7 +2,7 @@
 
 #### The issue
 
-<b>Docker Desktop</b> on <b>MacOS</b> works on top of KVM <b>Virtual Machine</b>.
+<b>Docker Desktop</b> on <b>MacOS</b> works on top of HyperKit <b>Virtual Machine</b>.
 
 So, if you would try to map your local folders into a container - it will actually setup network share.
 Where container will connect to host and do read/write via internal network.
@@ -61,10 +61,10 @@ So, we need to do next things:
 
 * Assuming that docker-desktop is installed & working.
 * Run once:
-    * sh server/initNfsServer.sh
+    * sh initNfsServer.sh
 
 * Run mount script:
-    * sh client</b>/startShare.sh
+    * sh startShare.sh
 
 * Create needed docker volume:
     * docker volume create nginx-data
