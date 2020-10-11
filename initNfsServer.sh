@@ -19,7 +19,6 @@ docker run \
  --restart always \
  --privileged \
  -p 10555:2049 \
- -m 512m \
  -v /var/lib/docker/volumes:/allDockerVolumes \
  -v /lib/modules:/lib/modules \
  -e SHARED_DIRECTORY=/allDockerVolumes \

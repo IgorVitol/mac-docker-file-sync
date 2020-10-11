@@ -52,6 +52,12 @@ I have prepared few shell scripts in this repository as POC:
 *  <b>stopShare.sh</b>
     * Unmount active NFS session by path (<b>~/docker-volumes</b>)
     
+*  <b>mobySSH.sh</b>
+    * "SSH" to VirtualMachine where docker is working.
+    You can access docker, top, unzip, git, mount, e.t.c. tools under VM file-system.
+    Potentially could be used for fast/quick access to the files if network share by some reason is still slow.
+        * <b>Example:</b> Git clone/push/pull directly to VM, to avoid network shares for this.
+    
 #### Usage
 
 Let's check on simplest example.
@@ -97,5 +103,23 @@ If you want to use Kubernetes hostPath persistent volumes, you could use this wa
 Just save your <b>hostPath</b> volume folder as <b>~/docker-volumes/myVolumeDir</b>.
 
 Then use:
-* hostPath: "/var/lib/docker/volumes/myVolumeDir"    
+* hostPath: "/var/lib/docker/volumes/myVolumeDir"
+
+### Notes
+
+MacOS has some file-system features which doesn't work well with network shares (e.g. connected via NFS/Samba) :
+* In each network-drive sub-folder, it could create "<b>.DS_Store</b>" file. In order to disable this feature, run:
+    * defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+* In case if you will use "finder", unzip or any other mac-specific tool to manage network files -
+it will create same file with a prefix - "<b>.\_</b>" (dot underscore).
+    * Here is no possibility to disable such files creation.
+    * Actually this has deeper meaning for macOS filesystem, but not for NFS.
+    * Please note, that PhpStorm, Git, chmod, chown - works fine with network shares and doesn't create
+    <b>.\_</b> files on network drive.
+    * If you will copy files from MacOS file-system - "<b>.\_</b>" files will be created/copied as well.
+        * As workaround, use "cp -X" to avoid "<b>.\_</b>" files creation on NFS share.
+     
+
+      
  
