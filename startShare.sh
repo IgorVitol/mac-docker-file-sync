@@ -7,4 +7,4 @@
 # TODO: automate mount after docker-desktop startup
 
 mkdir -p ~/docker-volumes
-mount -t nfs -o port=10555 -o vers=4 -v 127.0.0.1:/ ~/docker-volumes
+mount -t nfs -o noatime,port=10555,vers=4 -v 127.0.0.1:/ ~/docker-volumes
